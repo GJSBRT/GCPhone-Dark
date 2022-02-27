@@ -313,7 +313,7 @@ AddEventHandler("gcPhone:receiveMessage", function(message)
   -- SendNUIMessage({event = 'updateMessages', messages = messages})
   SendNUIMessage({event = 'newMessage', message = message})
   table.insert(messages, message)
-  if message.owner == 0 then
+  if tonumber(message.owner) == 0 then
     local text = _U('new_message')
     if Config.ShowNumberNotification == true then
       text = _U('new_message_from', message.transmitter)
